@@ -26,4 +26,16 @@ export class ActivitiesService {
   findByAlias = async (alias: string) => {
     return await this.activityModel.findOne({ alias: alias });
   };
+
+  findByNameTop = async (name: string) => {
+    return await this.activityModel
+      .find({
+        name: { $regex: `.*${name}.*` },
+      })
+      .limit(3);
+  };
+
+  findTop = async () => {
+    return await this.activityModel.find().limit(3);
+  };
 }

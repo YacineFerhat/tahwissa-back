@@ -19,4 +19,13 @@ export class ActivitiesController {
   findByAlias(@Param('alias') alias: string) {
     return this.activitiesService.findByAlias(alias);
   }
+
+  @Get('searchTop/:name')
+  findByNameTop(@Param('name') name: string) {
+    return this.activitiesService.findByNameTop(name);
+  }
+  @Get('top/')
+  findTop() {
+    return this.activitiesService.findTop();
+  }
 }
